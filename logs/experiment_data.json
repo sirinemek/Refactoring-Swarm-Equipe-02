@@ -1,0 +1,45 @@
+[
+  {
+    "id": "uuid-1",
+    "timestamp": "2025-12-26T10:15:30.123456",
+    "agent_name": "Auditor_Agent",
+    "model_used": "gemini-2.5-flash",
+    "action": "ANALYSIS",
+    "details": {
+      "input_prompt": "Texte EXACT envoyé au LLM",
+      "output_response": "Réponse BRUTE du LLM",
+      "file_analyzed": "sandbox/buggy_code.py",
+      "issues_found": 4
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "id": "uuid-2",
+    "timestamp": "2025-12-26T10:16:45.789012",
+    "agent_name": "Fixer_Agent",
+    "model_used": "gemini-2.5-flash",
+    "action": "FIX",
+    "details": {
+      "input_prompt": "Corrige les erreurs suivantes...",
+      "output_response": "Voici le code corrigé...",
+      "file_modified": "sandbox/buggy_code.py",
+      "changes_applied": ["Ajout docstring", "Fix syntax"]
+    },
+    "status": "SUCCESS"
+  },
+  {
+    "id": "uuid-3",
+    "timestamp": "2025-12-26T10:17:20.345678",
+    "agent_name": "Judge_Agent",
+    "model_used": "gemini-2.5-flash",
+    "action": "DEBUG",
+    "details": {
+      "input_prompt": "Analyse ces erreurs de tests...",
+      "output_response": "Les erreurs sont dues à...",
+      "tests_passed": 3,
+      "tests_failed": 2,
+      "error_logs": ["TypeError line 23", "ZeroDivisionError line 45"]
+    },
+    "status": "FAILURE"
+  }
+]
