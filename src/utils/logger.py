@@ -6,16 +6,14 @@ from enum import Enum
 
 # Chemin du fichier de logs
 LOG_FILE = os.path.join("logs", "experiment_data.json")
-
 class ActionType(str, Enum):
     """
     Énumération des types d'actions possibles pour standardiser l'analyse.
     """
-    ANALYSIS = "CODE_ANALYSIS"  # Audit, lecture, recherche de bugs
-    GENERATION = "CODE_GEN"     # Création de nouveau code/tests/docs
-    DEBUG = "DEBUG"             # Analyse d'erreurs d'exécution
-    FIX = "FIX"                 # Application de correctifs
-
+    ANALYSIS = "ANALYSIS"      # Audit, lecture, recherche de bugs
+    GENERATION = "GENERATION"  # Création de nouveau code/tests/docs
+    DEBUG = "DEBUG"            # Analyse d'erreurs d'exécution
+    FIX = "FIX"                # Application de correctifs
 def log_experiment(agent_name: str, model_used: str, action: ActionType, details: dict, status: str):
     """
     Enregistre une interaction d'agent pour l'analyse scientifique.
@@ -60,14 +58,14 @@ def log_experiment(agent_name: str, model_used: str, action: ActionType, details
     os.makedirs("logs", exist_ok=True)
     
     entry = {
-        "id": str(uuid.uuid4()),  # ID unique pour éviter les doublons lors de la fusion des données
-        "timestamp": datetime.now().isoformat(),
-        "agent": agent_name,
-        "model": model_used,
-        "action": action_str,
-        "details": details,
-        "status": status
-    }
+    "id": str(uuid.uuid4()),
+    "timestamp": datetime.now().isoformat(),
+    "agent_name": agent_name,      
+    "model_used": model_used,      
+    "action": action_str,
+    "details": details,
+    "status": status
+}
 
     # --- 4. LECTURE & ÉCRITURE ROBUSTE ---
     data = []

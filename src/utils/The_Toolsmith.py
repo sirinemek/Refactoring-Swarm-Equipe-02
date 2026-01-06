@@ -217,4 +217,3 @@ if __name__ == "__main__":
 
     for file, line, col, code, message, symbol in parsing_errors:
         print(f"{file}:{line}:{col} [{code}] {message} ({symbol})")
-
