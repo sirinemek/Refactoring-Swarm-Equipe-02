@@ -10,6 +10,7 @@ from collections import Counter
 # Import depuis le même dossier
 from .logger import log_experiment, ActionType
 
+
 class DataOfficer:
     """
     Data Officer - Responsable de la qualité des données
@@ -129,7 +130,7 @@ class DataOfficer:
         
         # Par action
         actions = Counter([log.get("action", "Unknown") for log in logs])
-        print("\n Par Type d'Action:")
+        print("\n🔧 Par Type d'Action:")
         for action, count in sorted(actions.items()):
             print(f"  • {action}: {count}")
         
@@ -137,7 +138,7 @@ class DataOfficer:
         statuses = Counter([log.get("status", "Unknown") for log in logs])
         print("\n Par Statut:")
         for status, count in statuses.items():
-            emoji = "" if status == "SUCCESS" else "❌"
+            emoji = "" if status == "SUCCESS" else ""
             print(f"  {emoji} {status}: {count}")
         
         # Taux de succès
@@ -165,15 +166,16 @@ class DataOfficer:
                 count = len([l for l in logs if (l.get("agent_name") or l.get("agent")) == agent])
                 print(f"   {agent}: {count} entrées")
             else:
-                print(f"   {agent}: AUCUNE entrée (non loggué!)")
+                print(f"  {agent}: AUCUNE entrée (non loggué!)")
         
         print("="*70)
+
 
 def main():
     """Point d'entrée principal"""
     officer = DataOfficer()
     
-    print(" Data Officer - Validation du Projet")
+    print("🎓 Data Officer - Validation du Projet")
     print("="*70 + "\n")
     
     # Validation
@@ -191,6 +193,7 @@ def main():
     else:
         print("\n Validation échouée - Corrigez les erreurs!")
         return 1
+
 
 if __name__ == "__main__":
     exit(main())
