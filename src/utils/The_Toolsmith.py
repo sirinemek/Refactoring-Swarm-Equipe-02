@@ -1,7 +1,10 @@
 from pathlib import Path
 from typing import List
-
-
+from pathlib import Path
+from typing import List, Dict, Tuple, Optional
+import subprocess
+import json
+import re
 # ============================================================
 #  Sécurité : vérification sandbox
 # ============================================================
@@ -98,11 +101,7 @@ def list_python_files(base_dir: Path) -> List[str]:
         python_files.append(str(path.relative_to(base_dir)))
 
     return python_files
-from pathlib import Path
-from typing import List, Dict, Tuple, Optional
-import subprocess
-import json
-import re
+
 
 # ============================================================
 # 🔹 Exécution sécurisée d'une commande shell
